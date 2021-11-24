@@ -1,13 +1,13 @@
 package com.lukaszplawiak.ecommerceshop.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "country")
 public class Country {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -16,8 +16,9 @@ public class Country {
     private String code;
     @Column(name = "name")
     private String name;
+
     @OneToMany(mappedBy = "country")
-    //@JsonIgnore - ignorowanie states
+    @JsonIgnore
     private List<State> states;
 
     public int getId() {
