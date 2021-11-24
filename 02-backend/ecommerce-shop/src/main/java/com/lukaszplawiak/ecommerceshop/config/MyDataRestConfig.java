@@ -1,9 +1,6 @@
 package com.lukaszplawiak.ecommerceshop.config;
 
-import com.lukaszplawiak.ecommerceshop.entity.Country;
-import com.lukaszplawiak.ecommerceshop.entity.Product;
-import com.lukaszplawiak.ecommerceshop.entity.ProductCategory;
-import com.lukaszplawiak.ecommerceshop.entity.State;
+import com.lukaszplawiak.ecommerceshop.entity.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
@@ -39,6 +36,7 @@ public class MyDataRestConfig implements RepositoryRestConfigurer {
         disableHttpMethods(ProductCategory.class, config, theUnsupportedActions);
         disableHttpMethods(Country.class, config, theUnsupportedActions);
         disableHttpMethods(State.class, config, theUnsupportedActions);
+        disableHttpMethods(Order.class, config, theUnsupportedActions);
         // call an intrernal helper method
         exposeIds(config);
         //configure cors mapping
